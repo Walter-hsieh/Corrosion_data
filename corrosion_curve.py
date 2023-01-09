@@ -93,7 +93,7 @@ fig = px.line(x = xseq, y =a + b * xseq)
 fig.add_trace(go.Scatter(x = xseq1 , y = a1 + b1 * xseq1, mode='lines'))
 fig.add_trace(go.Scatter(x = x2 , y = y2, mode='lines'))
 fig.add_scatter(x=df['P'], y=df['log_A'])
-# fig.show()
+fig.show()
 
 
 
