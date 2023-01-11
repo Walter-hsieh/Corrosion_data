@@ -86,15 +86,15 @@ ax.annotate(text, xy=(px0[0], py0[0]), xytext=(px0[0],py0[0]+0.9))
 plt.show()
 
 
-'''
+
 import plotly.express as px
 import plotly.graph_objects as go
 fig = px.line(x = xseq, y =a0 + b0 * xseq)
 fig.add_trace(go.Scatter(x = xseq1 , y = a1 + b1 * xseq1, mode='lines'))
 fig.add_trace(go.Scatter(x = x2 , y = y2, mode='lines'))
 fig.add_scatter(x=df['P'], y=df['log_A'])
-# fig.show()
-'''
+fig.show()
+
 
 
 
