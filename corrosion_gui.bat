@@ -1,0 +1,1 @@
+"D:\python\python.exe" "C:\Users\walte\Desktop\Alice_data\corrosion_gui.py"
