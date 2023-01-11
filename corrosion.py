@@ -12,8 +12,8 @@ ax.plot(df['P'], df['log_A'])
 # User input
 #-------------------------------------------------------
 
-x0 = [-0.1298523, -0.1266479]
-y0 =[-7.139177, -7.171221]
+x0 = [-0.2558899, -0.1789856]
+y0 =[-6.40058, -6.803409]
 
 x1 = [-0.05828857, -0.06149292]
 y1 = [-7.142794, -7.188034]
@@ -31,6 +31,7 @@ ax.scatter(x0, y0, s=60, alpha=0.7, edgecolors="k")
 ax.scatter(x1, y1, s=60, alpha=0.7, edgecolors="k")
 ax.scatter(x2, y2, s=60, alpha=0.7, edgecolors="k")
 
+
 # Fit linear regression via least squares with numpy.polyfit
 # It returns an slope (b) and intercept (a)
 # deg=1 means linear fit (i.e. polynomial of degree 1)
@@ -41,8 +42,10 @@ b1, a1 = np.polyfit(x1, y1, deg=1)
 
 
 # Create sequence of 100 numbers from 0 to 100 
-xseq = np.linspace(-0.3, -0.0828, num=100)
-xseq1 = np.linspace(-0.096, 0.06, num=100)
+
+ocp = lowest_point[0] # input ocp (changable parameter)
+xseq = np.linspace(ocp-0.25, ocp+0.25, num=100)
+xseq1 = np.linspace(ocp-0.25, ocp+0.25, num=100)
 
 # Plot regression line
 ax.plot(xseq, a0 + b0 * xseq, color="k", lw=1);
@@ -71,6 +74,7 @@ print(px0[0],py0[0])
 print(px1[0],py1[0])
 print(px2[0],py2[0])
 
+
 text = f" point1: ({round(px0[0],4)},{round(py0[0],4)}),\n point2: ({round(px1[0],4)},{round(py1[0],4)}),\n point3: ({round(px2[0],4)},{round(py2[0],4)})"
 
 print(text)
@@ -82,14 +86,15 @@ ax.annotate(text, xy=(px0[0], py0[0]), xytext=(px0[0],py0[0]+0.9))
 plt.show()
 
 
-
+'''
 import plotly.express as px
 import plotly.graph_objects as go
 fig = px.line(x = xseq, y =a0 + b0 * xseq)
 fig.add_trace(go.Scatter(x = xseq1 , y = a1 + b1 * xseq1, mode='lines'))
 fig.add_trace(go.Scatter(x = x2 , y = y2, mode='lines'))
 fig.add_scatter(x=df['P'], y=df['log_A'])
-fig.show()
+# fig.show()
+'''
 
 
 
